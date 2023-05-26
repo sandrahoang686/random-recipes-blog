@@ -1,0 +1,54 @@
+.cardContainer {
+  display: block;
+  width: 100%;
+  height: 10rem;
+  /* background-color: orange; */
+  /* padding: 1rem; */
+
+  /* position: fixed;
+  height: 10rem;
+  width: 100%;
+  overflow: hidden;
+  z-index: -1; */
+}
+
+.optionsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10rem;
+}
+
+.optionsView {
+  display: inline-block;
+}
+
+.optionButtons {
+  /* display: flex; */
+  /* display: inherit; */
+	background: none;
+	color: inherit;
+	/* border: none; */
+  border-radius: 10px;
+	padding: 1rem;
+  margin: 0 0.2rem;
+	font: inherit;
+	cursor: pointer;
+  /* text-align: center; */
+  /* margin: 0 auto; */
+	/* outline: inherit; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* margin: auto; */
+  /* padding: auto; */
+}
+
+.exitButton {
+  background: none;
+	color: inherit;
+  border-radius: 5px;
+  padding: 0.5rem;
+  align-self: flex-start;
+  cursor: pointer;
+}
