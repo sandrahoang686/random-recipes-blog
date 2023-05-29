@@ -3,12 +3,12 @@ import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import Card from '../components/cards'
 
-import { getSortedPostsData } from '../lib/posts';
+import { getPostsData } from '../lib/posts';
 
 // Note: Built in nextJs fn that will pre-render this page at build time
 // using props returned
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = getPostsData();
   return {
     props: {
       allPostsData,

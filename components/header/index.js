@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './header.module.css';
 import Link from 'next/link';
-import React from 'react'
+import React from 'react';
 
 const headerName = 'Sandra'
 

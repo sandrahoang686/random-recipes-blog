@@ -1,14 +1,105 @@
 import { useRouter } from 'next/router';
-import Link from 'next/link';
- 
-export default function InteractiveRecipePage() {
+import Layout from '../../../components/layout';
+import { getPostsData} from '../../../lib/posts';
+import utilStyles from '../../../styles/utils.module.css';
+import SectionCard from '../../../components/section-card';
+import React from 'react';
+
+export const getStaticPaths = async () => {
+  return {
+    paths: [
+      { params: { recipe: 'fish-katsu' } },
+      { params: { recipe: 'chicken-katsu' } },
+    ],
+    fallback: true, // false or "blocking"
+  };
+};
+
+// Note: Built in nextJs fn that will pre-render this page at build time
+// using props returned
+export async function getStaticProps() {
+  const allPostsData = getPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+const isBrowser = () => typeof window !== 'undefined';
+
+const scrollToBottom = () =>{ 
+  if (!isBrowser()) return;
+  window.scrollTo({ 
+    top: document.documentElement.scrollHeight, 
+    behavior: 'smooth'
+  }); 
+}; 
+
+
+export default function InteractiveRecipePage({ allPostsData }) {
   const router = useRouter();
+  const [currentStep, setCurrentStep] = React.useState(0);
+  const ref = React.useRef(null);
+
+  const post = allPostsData.find(post => post.id === router.query.recipe)
+  console.log(`POST: `, post)
+
+  const handleNextClick = () => {
+    setCurrentStep(currentStep+1);
+  }
+
+  React.useEffect(() => {
+    // Watch for state change in currentStep and then scroll to bottom of page
+    if(currentStep) {
+      scrollToBottom()
+    }
+  }, [currentStep])
+
+
   return (
-    <>
-      <h2>
-        <Link href="/">Back to recipes</Link>
-        </h2>
-      <p>Interactive Recipe: {router.query.recipe}</p>
-    </>
+    <Layout>
+      <h3 className={utilStyles.headingMd}>{post.title}</h3>
+      <h4 className={utilStyles.headingSm}>Interactive Recipe</h4>
+      <div
+        id='section-card-0'
+      >
+        <SectionCard infoCard={
+            {
+              cooking_time: post.cooking_time,
+              ingredients: post.ingredients,
+              serving_size: post.serving_size
+            }
+          }
+        />
+        {
+          currentStep === 0 && <button onClick={handleNextClick}>Let's Start</button>
+        }
+      </div>
+      {
+        Object.entries(post.steps).map((value, index) => 
+          {
+            console.log(`key: `, value, index)
+            console.log(index+1 === currentStep, index+1 < Object.keys(post.steps).length)
+            return (
+              <div
+                id={`section-card-${index+1}`}
+                style={{
+                  display: index+1 <= currentStep ? 'block' : 'none',
+                }}
+              >
+                <SectionCard step={index+1} instructions={value}/>
+                {
+                  // Display button when we are on the current step and the currentStep is not the last
+                  index+1 === currentStep && currentStep < Object.keys(post.steps).length && <button onClick={handleNextClick}>next</button>
+                }
+              </div>
+            )
+
+          }
+        )
+      }
+      <div id="bottom" style={{ float:"left", clear: "both" }}></div>
+    </Layout>
   );
 }

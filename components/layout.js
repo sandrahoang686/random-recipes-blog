@@ -22,12 +22,12 @@ export default function Layout({ children, recipes }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head> */}
       <Header/>
-      <main>{children}</main>
       {!recipes && (
         <div className={styles.backToRecipes}>
           <Link href="/">← Back to recipes</Link>
         </div>
       )}
+      <main>{children}</main>
     </div>
   );
 }
