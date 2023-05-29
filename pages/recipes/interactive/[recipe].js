@@ -40,10 +40,8 @@ const scrollToBottom = () =>{
 export default function InteractiveRecipePage({ allPostsData }) {
   const router = useRouter();
   const [currentStep, setCurrentStep] = React.useState(0);
-  const ref = React.useRef(null);
 
   const post = allPostsData.find(post => post.id === router.query.recipe)
-  console.log(`POST: `, post)
 
   const handleNextClick = () => {
     setCurrentStep(currentStep+1);
@@ -62,7 +60,7 @@ export default function InteractiveRecipePage({ allPostsData }) {
       <h2 className={utilStyles.headingLg}>{post.title}</h2>
       <h4 className={utilStyles.headingSm}>Interactive Recipe</h4>
       <div
-        id='section-card-0'
+        className='section-card'
       >
         <SectionCard infoCard={
             {
@@ -73,7 +71,7 @@ export default function InteractiveRecipePage({ allPostsData }) {
           }
         />
         {
-          currentStep === 0 && <button onClick={handleNextClick}>Let's Start</button>
+          currentStep === 0 && <button className={utilStyles.utilButton} onClick={handleNextClick}>Let's Start</button>
         }
       </div>
       {
@@ -81,7 +79,7 @@ export default function InteractiveRecipePage({ allPostsData }) {
           {
             return (
               <div
-                id={`section-card-${index+1}`}
+                className='section-card'
                 style={{
                   display: index+1 <= currentStep ? 'block' : 'none',
                 }}
@@ -89,7 +87,7 @@ export default function InteractiveRecipePage({ allPostsData }) {
                 <SectionCard step={index+1} instructions={value[1]}/>
                 {
                   // Display button when we are on the current step and the currentStep is not the last
-                  index+1 === currentStep && currentStep < Object.keys(post.steps).length && <button onClick={handleNextClick}>next</button>
+                  index+1 === currentStep && currentStep < Object.keys(post.steps).length && <button className={utilStyles.utilButton} onClick={handleNextClick}>next</button>
                 }
               </div>
             )

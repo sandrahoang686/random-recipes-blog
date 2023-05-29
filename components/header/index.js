@@ -34,7 +34,9 @@ export default function Header() {
         <div className={styles.menuLinkWithOptionsContainer}>
           <span className={styles.menuLinkWithOptions} onClick={handleMenuLinkClick}>
             about
-            <Image src="/images/menu-down-arrow.svg" width={15} height={15} alt="menu arrow"/>
+            <div className={isOpen ? styles.menuArrowWrapperOpen : styles.menuArrowWrapper}>
+              <Image src="/images/menu-down-arrow.svg" width={13} height={13} alt="menu arrow"/>
+            </div>
           </span>
           {isOpen && aboutMenu}
         </div>

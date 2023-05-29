@@ -1,6 +1,5 @@
 import styles from './cards.module.css';
 import utilStyles from '../../styles/utils.module.css';
-import Image from 'next/image';
 import React from 'react'
 import { useRouter } from 'next/router';
 
@@ -37,7 +36,7 @@ export default function Card({title, id, cookingTime, servingSize, content, imag
     }
   }
 
-  // DOCUMENT: Can make more accessible by wrapping a button around instead
+  // TODO: Can make more accessible by wrapping a button around instead
   return (
     <div
       className={`${cardContainerClassName} ${utilStyles.borderCircle}`}
@@ -46,7 +45,7 @@ export default function Card({title, id, cookingTime, servingSize, content, imag
         backgroundImage: `url(images/${imageFilename})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        opacity: 0.6,
+        opacity: 0.8,
         cursor: !displayOptions ? 'pointer' : 'auto',
       }}
     >
@@ -56,15 +55,13 @@ export default function Card({title, id, cookingTime, servingSize, content, imag
             <OptionButtons id={id}/>
             <button className={styles.exitButton} onClick={handleCardClickEvent}>X</button>
           </>
-          
           :
-          <>
+          <div className={utilStyles.contentWrapper}>
             <h3 className={utilStyles.headingMd}>{title}</h3>
-            <span>{id}</span>
             <p className={utilStyles.textContentMd}>Cooking Time: {cookingTime}</p>
             <p className={utilStyles.textContentMd}>Serving Size: {servingSize}</p>
             <p className={utilStyles.textContentMd}>About: {content}</p>
-          </>
+          </div>
       }
     </div>
   )

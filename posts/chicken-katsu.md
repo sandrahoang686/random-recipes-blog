@@ -2,7 +2,7 @@
 title: 'Chicken Katsu'
 cooking_time: '30 minutes'
 serving_size: 2
-image_filename: 'golden_fish_katsu.jpeg'
+image_filename: 'chicken-katsu.jpeg'
 ingredients: 'chicken breast, panko, eggs, flour, salt, pepper, oil'
 steps:
   1: 'this is step 1 to be replaced'
