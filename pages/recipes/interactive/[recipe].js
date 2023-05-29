@@ -59,7 +59,7 @@ export default function InteractiveRecipePage({ allPostsData }) {
 
   return (
     <Layout>
-      <h3 className={utilStyles.headingMd}>{post.title}</h3>
+      <h2 className={utilStyles.headingLg}>{post.title}</h2>
       <h4 className={utilStyles.headingSm}>Interactive Recipe</h4>
       <div
         id='section-card-0'
@@ -79,8 +79,6 @@ export default function InteractiveRecipePage({ allPostsData }) {
       {
         Object.entries(post.steps).map((value, index) => 
           {
-            console.log(`key: `, value, index)
-            console.log(index+1 === currentStep, index+1 < Object.keys(post.steps).length)
             return (
               <div
                 id={`section-card-${index+1}`}
@@ -88,7 +86,7 @@ export default function InteractiveRecipePage({ allPostsData }) {
                   display: index+1 <= currentStep ? 'block' : 'none',
                 }}
               >
-                <SectionCard step={index+1} instructions={value}/>
+                <SectionCard step={index+1} instructions={value[1]}/>
                 {
                   // Display button when we are on the current step and the currentStep is not the last
                   index+1 === currentStep && currentStep < Object.keys(post.steps).length && <button onClick={handleNextClick}>next</button>
