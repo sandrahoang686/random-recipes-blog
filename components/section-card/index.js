@@ -1,9 +1,8 @@
 import styles from './section-card.module.css';
 import utilStyles from '../../styles/utils.module.css';
-import React from 'react'
+import React from 'react';
 
 export default function SectionCard({step, instructions, infoCard = undefined}) {
-  // DOCUMENT: Can make more accessible by wrapping a button around instead
   return (
     <>
       {
@@ -16,6 +15,7 @@ export default function SectionCard({step, instructions, infoCard = undefined}) 
               <p>Cooking Time: {infoCard.cooking_time}</p>
               <p>Ingredients: {infoCard.ingredients}</p>
               <p>Serving Size: {infoCard.serving_size}</p>
+              <p>About: {infoCard.about}</p>
             </div>
           </section>
         :
@@ -29,5 +29,5 @@ export default function SectionCard({step, instructions, infoCard = undefined}) 
           </section>
       }
     </>
-  )
+  );
 }

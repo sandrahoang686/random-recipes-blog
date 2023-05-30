@@ -10,7 +10,7 @@ export default function ProfilePage() {
           <p>This app was built as a small exploratory effort to learn and upskill on NextJs. This project plays around with dynamic routing,
             global vs in-scope styling and pre-rendering during build time.
             There was also a maintained focus to build this app modularly and for ease of scalability,
-            even though there is no plans to scale this app in the future... so for this specific case, some parts may be overkill!!!
+            even though there is no plans to scale this app in the future... so for this specific case, some parts may be overkill!
             But this is to also help display my abilities in React.
           </p>
         </section>

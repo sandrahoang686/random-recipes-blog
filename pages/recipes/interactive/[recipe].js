@@ -5,18 +5,19 @@ import utilStyles from '../../../styles/utils.module.css';
 import SectionCard from '../../../components/section-card';
 import React from 'react';
 
+// Note: Built in NextJs fn that will pre-render all dynamic paths specified here
 export const getStaticPaths = async () => {
   return {
     paths: [
       { params: { recipe: 'fish-katsu' } },
       { params: { recipe: 'chicken-katsu' } },
     ],
-    fallback: true, // false or "blocking"
+    fallback: true, // when true - getStaticProps runs in the background
   };
 };
 
-// Note: Built in nextJs fn that will pre-render this page at build time
-// using props returned
+// Note: Built in NextJs fn that will pre-render this page at build time
+// using props returned - Static Generation
 export async function getStaticProps() {
   const allPostsData = getPostsData();
   return {
@@ -35,7 +36,6 @@ const scrollToBottom = () =>{
     behavior: 'smooth'
   }); 
 }; 
-
 
 export default function InteractiveRecipePage({ allPostsData }) {
   const router = useRouter();
@@ -66,7 +66,8 @@ export default function InteractiveRecipePage({ allPostsData }) {
             {
               cooking_time: post.cooking_time,
               ingredients: post.ingredients,
-              serving_size: post.serving_size
+              serving_size: post.serving_size,
+              about: post.content
             }
           }
         />

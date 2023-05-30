@@ -1,7 +1,6 @@
 import '../styles/global.css';
 
-// NOTE: For global styles
-
+// How global styles are applied here
 export default function App({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }

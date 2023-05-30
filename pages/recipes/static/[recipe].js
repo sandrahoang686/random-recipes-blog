@@ -3,18 +3,19 @@ import Layout from '../../../components/layout';
 import utilStyles from '../../../styles/utils.module.css';
 import { getPostsData} from '../../../lib/posts';
 
+// Note: Built in NextJs fn that will pre-render all dynamic paths specified here
 export const getStaticPaths = async () => {
   return {
     paths: [
       { params: { recipe: 'fish-katsu' } },
       { params: { recipe: 'chicken-katsu' } },
     ],
-    fallback: true, // false or "blocking"
+    fallback: true, // when true - getStaticProps runs in the background
   };
 };
 
-// Note: Built in nextJs fn that will pre-render this page at build time
-// using props returned
+// Note: Built in NextJs fn that will pre-render this page at build time
+// using props returned - Static Generation
 export async function getStaticProps() {
   const allPostsData = getPostsData();
   return {
