@@ -88,7 +88,7 @@ export default function InteractiveRecipePage({ allPostsData }) {
                 <SectionCard step={index+1} instructions={value[1]}/>
                 {
                   // Display button when we are on the current step and the currentStep is not the last
-                  index+1 === currentStep && currentStep < Object.keys(post.steps).length && <button className={utilStyles.utilButton} onClick={handleNextClick}>next</button>
+                  index+1 === currentStep && <button className={utilStyles.utilButton} onClick={handleNextClick}>next</button>
                 }
               </div>
             )

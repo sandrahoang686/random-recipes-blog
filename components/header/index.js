@@ -6,7 +6,7 @@ import React from 'react';
 export default function Header() {
   const [isOpen, setOpen] = React.useState(false);
 
-  // Note: There is a room to be explicit here but choosing this way for simplicity sake currently
+  // Note: There is room to be explicit here but choosing this way for simplicity sake currently
   const handleMenuLinkClick = () => setOpen(!isOpen);
 
   const aboutMenu = (

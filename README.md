@@ -1,5 +1,5 @@
 ## About
-This app was built as a small exploratory effort to learn and upskill on NextJs. This project plays around with dynamic routing, global vs in-scope styling and pre-rendering during build time. There was also a maintained focus to build this app modularly and for ease of scalability, even though there is no plans to scale this app in the future... so for this specific case, some parts may be overkill! But this is to also help display my abilities in React.
+This app was built as a small exploratory effort to learn and upskill on NextJs. This project plays around with dynamic routing, global vs in-scope styling and pre-rendering during build time. There was also a maintained focus to build this app modularly in a re-useable way and for ease of scalability, even though there is no plans to scale this app in the future... so for this specific case, some parts may be overkill!
 
 ## Tech Stack
 * NextJs
@@ -23,4 +23,4 @@ At the root of the project...
 ## TODOS
 * Unit test `posts.js` with Jest
 * Make certain areas more accessible like clickable divs can be buttons instead
-* Convert to use TypeScript
+* Convert to use TypeScript to apply strict types

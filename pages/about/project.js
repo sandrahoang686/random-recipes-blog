@@ -7,11 +7,10 @@ export default function ProfilePage() {
       <Layout>
         <section>
           <h3 className={utilStyles.headingMd}>About this project:</h3>
-          <p>This app was built as a small exploratory effort to learn and upskill on NextJs. This project plays around with dynamic routing,
-            global vs in-scope styling and pre-rendering during build time.
-            There was also a maintained focus to build this app modularly and for ease of scalability,
+          <p>This app was built as a small exploratory effort to learn and upskill on NextJs.
+            This project plays around with dynamic routing, global vs in-scope styling and pre-rendering during build time.
+            There was also a maintained focus to build this app modularly in a re-useable way and for ease of scalability,
             even though there is no plans to scale this app in the future... so for this specific case, some parts may be overkill!
-            But this is to also help display my abilities in React.
           </p>
         </section>
         <section>
